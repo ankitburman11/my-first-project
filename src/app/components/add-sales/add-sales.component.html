@@ -1,0 +1,146 @@
+<form [formGroup]="saleDetailsForm" (ngSubmit)="onSubmit()">
+  <div class="container my-3 bg-dark shadow-md rounded">
+    <app-user-detail-form [parentForm]="saleDetailsForm"></app-user-detail-form>
+    <br />
+    <div class="sales-grid-container col-xl-12">
+      <div class="item-heading">#</div>
+      <div class="item-heading">Particulars</div>
+      <div class="item-heading">Weight</div>
+      <div class="item-heading">Rate</div>
+      <div class="item-heading">Amount</div>
+      <ng-container formArrayName="saleDetail">
+        <ng-container
+          *ngFor="let saleItem of getSaleDataControl; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="item item-slNo">{{ i }}</div>
+          <div class="item">
+            <input
+              type="text"
+              placeholder="Item Name"
+              class="form-control sale-detail-input"
+            />
+          </div>
+          <div class="item">
+            <input
+              type="text"
+              placeholder="Weight"
+              class="form-control sale-detail-input"
+              formControlName="weightGold"
+            />
+          </div>
+          <div class="item">
+            <input
+              type="text"
+              placeholder="Rate"
+              class="form-control sale-detail-input"
+              formControlName="rateGold"
+            />
+          </div>
+          <div class="item">
+            <input
+              type="text"
+              placeholder="Amount"
+              class="form-control sale-detail-input"
+              formControlName="amountGoldItem"
+            />
+          </div>
+          <ng-container *ngIf="i === getSaleDataControl.length - 1">
+            <div class="empty-item"></div>
+            <div class="item">
+              <input
+                type="text"
+                placeholder="Add note"
+                class="form-control mx-auto sale-detail-input sale-note-input"
+              />
+            </div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+            <div class="empty-item"></div>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <!-- <div class="col-12 sale-cc">
+      <div
+        class="
+          row
+          col-12
+          justify-content-center
+          border-top border-bottom border-white
+          mx-0
+        "
+      >
+        <div class="col-1 vertical-line-left">
+          <span class="text-heading">#</span>
+        </div>
+        <div class="col-5 sales-heading">
+          <span class="text-heading">Particulars</span>
+        </div>
+        <div class="col-2 sales-heading">
+          <span class="text-heading">Weight</span>
+        </div>
+        <div class="col-2 sales-heading">
+          <span class="text-heading">Rate</span>
+        </div>
+        <div class="col-2 sales-heading">
+          <span class="text-heading">Amount</span>
+        </div>
+      </div>
+      <div class="row col-12 justify-content-center mx-0">
+        <div class="col-1 vertical-line-left">#</div>
+        <div class="col-5 vertical-line px-0">
+          <ng-template #saleInputRef>
+            <div class="col-8 my-3 input-cont">
+              <input
+                type="text"
+                class="text-white bg-dark item-form-control form-control"
+                formControlName="saleData.itemName"
+              />
+            </div>
+          </ng-template>
+        </div>
+        <div class="col-2 vertical-line px-0">
+          <ng-template #saleInputRef>
+            <div class="col-8 my-3 input-cont">
+              <input
+                type="text"
+                class="text-white bg-dark item-form-control form-control"
+                formControlName="weightGold"
+              />
+            </div>
+          </ng-template>
+        </div>
+        <div class="col-2 vertical-line px-0">
+          <ng-template #saleInputRef>
+            <div class="col-8 my-3 input-cont">
+              <input
+                type="text"
+                class="text-white bg-dark item-form-control form-control"
+                formControlName="saleData.rateGold"
+              />
+            </div>
+          </ng-template>
+        </div>
+        <div class="col-2 vertical-line px-0">
+          <ng-template #saleInputRef>
+            <div class="col-8 my-3 input-cont">
+              <input
+                type="text"
+                class="text-white bg-dark item-form-control form-control"
+                formControlName="saleData.amountGoldItem"
+              />
+            </div>
+          </ng-template>
+        </div>
+      </div>
+      <div *ngFor="let saleData of getSaleDataControl; let i = index">
+        <h1>{{ saleData }}</h1>
+
+        <ng-template *ngIf="i > 0" ; then saleInputRef></ng-template>
+      </div>
+    </div> -->
+    <button type="submit" class="btn-sm btn-success">Save</button>
+  </div>
+</form>

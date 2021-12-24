@@ -1,0 +1,68 @@
+.sales-grid-container {
+  display: grid;
+  grid-template-columns: 1fr 5fr 2fr 2fr 2fr;
+  /* justify-items: center; */
+  gap: 1px;
+  border: 1px solid white;
+  background-color: rgb(37, 37, 37);
+}
+
+.item-heading {
+  border: 1px solid white;
+  text-align: center;
+  height: 3rem;
+}
+
+.item {
+  border-right: 1px solid rgb(143, 142, 142);
+  border-left: 1px solid rgb(143, 142, 142);
+  text-align: center;
+  height: 10rem;
+}
+
+.empty-item {
+  border-right: 1px solid rgb(143, 142, 142);
+  border-left: 1px solid rgb(143, 142, 142);
+}
+
+.sale-detail-input {
+  background-color: rgb(31, 31, 31);
+  border: none;
+  border-bottom: 1px solid white;
+  text-align: center;
+  box-sizing: border-box;
+  width: 75%;
+  color: white;
+  display: block;
+  margin: 2rem auto;
+}
+
+.sale-note-input {
+  width: 90%;
+  height: 50%;
+  /* margin: 2rem auto; */
+}
+
+.item-slNo {
+  justify-self: center;
+  align-self: center;
+  box-sizing: border-box;
+  width: 100%;
+}
+/* .item {
+  padding: 10px;
+  border-bottom: 1px solid black;
+  /* with flexbox:
+  width: calc(50% - 21px);
+  
+}
+
+/* Remove border bottom from last item & from second last if its odd 
+.item:last-child, .item:nth-last-child(2):nth-child(odd) {
+  border-bottom: none;
+}
+
+/* Add right border to every second item 
+.item:nth-child(odd) {
+  border-right: 1px solid black;
+} */

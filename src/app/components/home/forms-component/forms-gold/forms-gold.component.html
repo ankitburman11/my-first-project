@@ -1,0 +1,160 @@
+<form [formGroup]="goldData" (ngSubmit)="onSave()">
+  <div class="form-group">
+    <div class="col-xs-12" formArrayName="goldItems">
+      <div
+        class="card shadow p-3 mb-3 rounded bg-dark gold-card"
+        *ngFor="let goldItem of goldItemsControls; let i = index"
+        [formGroupName]="i"
+      >
+        <!-- <h2>{{ 'typeGold' + i }}</h2> -->
+        <div *ngIf="i > 0">
+          <button
+            type="button"
+            class="btn btn-danger close-button"
+            (click)="onDeleteGoldItem(i)"
+          >
+            X
+          </button>
+        </div>
+        <div class="d-flex">
+          <div class="form-check form-check-inline mb-3">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="typeGold"
+              id="{{ 'hallmark' + i }}"
+              value="hallmark"
+              formControlName="typeGold"
+              (change)="onCheckHallmark(i)"
+            />
+            <label class="form-check-label" for="{{ 'hallmark' + i }}"
+              >Hallmark</label
+            >
+          </div>
+          <div class="form-check form-check-inline">
+            <input
+              class="form-check-input"
+              type="radio"
+              name="typeGold"
+              id="{{ 'kdm' + i }}"
+              value="kdm"
+              (change)="onCheckKDM(i)"
+              formControlName="typeGold"
+            />
+            <label class="form-check-label" for="{{ 'kdm' + i }}">KDM</label>
+          </div>
+        </div>
+        <input
+          type="number"
+          placeholder="Weight (in gms)"
+          class="form-control w-75 p-3 mb-3 bg-dark text-white"
+          formControlName="weightGold"
+        />
+        <div class="row">
+          <div class="col-5 d-flex align-items-center gap-2">
+            <input
+              type="number"
+              placeholder="Making Charge (in %)"
+              class="form-control w-75 p-3 bg-dark text-white"
+              formControlName="makingChargeGold"
+            /><span>%</span>
+          </div>
+          <div class="col-7">
+            <input
+              type="number"
+              placeholder="Custom ₹"
+              class="form-control form-control-sm w-75 p-3 bg-dark text-white"
+              formControlName="makingChargeRupee"
+            />
+          </div>
+        </div>
+        <input
+          type="number"
+          placeholder="Rate"
+          class="form-control w-75 p-3 my-3 bg-dark text-white"
+          formControlName="rateGold"
+        />
+        <span class="amount-rupee" *ngIf="goldItem.value.amountGoldItem"
+          >₹{{ goldItem.value.amountGoldItem }}</span
+        >
+      </div>
+    </div>
+    <button
+      type="button"
+      (click)="onAddGoldItems()"
+      class="btn btn-outline-secondary btn-sm"
+    >
+      Add Item
+    </button>
+    <button
+      type="button"
+      (click)="onAddExchange()"
+      class="btn btn-outline-secondary ms-2 btn-sm"
+      [disabled]="isExchange"
+    >
+      Exchange Item?
+    </button>
+
+    <div *ngIf="exchangeItemsControls!.length > 0">
+      <div class="col-xs-12" formArrayName="exchangeItems">
+        <div
+          class="d-flex gap-1 mb-3"
+          *ngFor="let exchangeItem of exchangeItemsControls; let i = index"
+          [formGroupName]="i"
+        >
+          <div class="col-xs-12">
+            <input
+              type="number"
+              class="form-control input-exchange text-white"
+              formControlName="totalWeight"
+              placeholder="Wt."
+            />
+          </div>
+          <div class="col-xs-12">
+            <input
+              type="number"
+              class="form-control input-exchange text-white"
+              formControlName="weightPercentage"
+              placeholder="%"
+            />
+          </div>
+          <div class="col-xs-12">
+            <input
+              type="number"
+              class="form-control input-exchange text-white"
+              formControlName="rate"
+              placeholder="Rate"
+            />
+          </div>
+
+          <div class="col-xs-12">
+            <button
+              type="button"
+              class="btn btn-danger mt-3 ms-3"
+              (click)="onDeleteExchangeItem(i)"
+            >
+              X
+            </button>
+          </div>
+          <div class="col-xs-12" *ngIf="i === exchangeItemsControls.length - 1">
+            <button
+              type="button"
+              class="btn btn-success mt-3"
+              (click)="onAddExchange()"
+            >
+              +
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card-buttons d-flex gap-2 mt-4">
+      <!-- <button type="submit" class="btn btn-primary">Check</button> -->
+      <button type="submit" class="btn btn-success">Save</button>
+      <button type="button" (click)="onClear()" class="btn btn-danger">
+        Clear
+      </button>
+    </div>
+  </div>
+</form>

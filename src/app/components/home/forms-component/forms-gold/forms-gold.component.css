@@ -1,0 +1,32 @@
+.input-exchange {
+  border: 0;
+  border-bottom: 1px solid whitesmoke;
+  margin-top: 1rem;
+  /* width: 30%; */
+  background-color: transparent;
+  flex-shrink: 1;
+  /* width: 70%; */
+}
+
+.amount-rupee {
+  color: rgb(20, 109, 20);
+  font-size: 3rem;
+}
+
+.gold-card {
+  position: relative;
+}
+.close-button {
+  position: absolute;
+  top: -1rem;
+  right: -1rem;
+  border-radius: 50%;
+  border: none;
+  color: #c2c2c2;
+  background-color: rgb(59, 59, 59);
+}
+
+.close-button:hover {
+  background-color: darkred;
+  color: white;
+}

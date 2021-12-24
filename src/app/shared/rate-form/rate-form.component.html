@@ -1,0 +1,35 @@
+<form [formGroup]="rateForm" (ngSubmit)="onSubmit()">
+  <ng-container *ngIf="entityName === 'Gold'">
+    <div class="row gold-input-container">
+      <input
+        type="number"
+        placeholder="HM"
+        class="form-control rate-input"
+        formControlName="goldHallmark"
+      />
+      <input
+        type="number"
+        placeholder="KDM"
+        class="form-control rate-input"
+        formControlName="goldKdm"
+      />
+    <button type="submit" class="save-button">✔</button>
+    </div>
+  </ng-container>
+  <div class="row" *ngIf="entityName === 'Silver'">
+    <input
+      type="number"
+      placeholder="Silver"
+      class="form-control rate-input"
+      formControlName="silver"
+    />
+  </div>
+  <div class="row" *ngIf="entityName === 'Diamond'">
+    <input
+      type="number"
+      placeholder="Diamond"
+      class="form-control rate-input"
+      formControlName="diamond"
+    />
+  </div>
+</form>

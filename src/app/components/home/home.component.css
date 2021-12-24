@@ -1,0 +1,30 @@
+.home-container {
+  padding-top: 1rem;
+  max-width: 100%;
+  background-color: rgb(66, 66, 66);
+}
+
+.card-header {
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1.4rem;
+  letter-spacing: 0.2rem;
+}
+
+.card-gold {
+  background-color: rgb(245, 208, 114);
+}
+
+.header-button {
+  background-color: transparent;
+  border: none;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  font-size: 1.4rem;
+  padding: 0 1rem;
+  align-self: center;
+}
+
+.header-button:hover {
+  border-bottom: 2px solid #e9c46a;
+}

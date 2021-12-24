@@ -1,0 +1,31 @@
+<form [formGroup]="parentForm" class="pt-2">
+  <div formGroupName="userDetails">
+    <div class="row mb-3">
+      <div class="col-8 mx-auto">
+        <input
+          type="text"
+          class="form-control sales-form-input bg-dark"
+          placeholder="Name"
+          formControlName="userName"
+        />
+      </div>
+    </div>
+    <div class="row d-flex justify-content-around gap-5">
+      <div class="col-4">
+        <input
+          type="text"
+          class="form-control sales-form-input bg-dark"
+          placeholder="Contact"
+          formControlName="userPhoneNumber"
+        />
+      </div>
+      <div class="col-4">
+        <input
+          type="date"
+          class="form-control sales-form-input bg-dark text-white"
+          placeholder="Date"
+        />
+      </div>
+    </div>
+  </div>
+</form>

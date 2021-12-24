@@ -1,0 +1,63 @@
+<div class="container home-container">
+  <div class="row">
+    <div class="col">
+      <div
+        class="card shadow p-3 mb-5 rounded bg-dark"
+        style="max-width: 25rem;"
+      >
+        <div class="card-header bg-transparent border-white d-flex">
+          <button
+            class="header-button"
+            type="button"
+            (click)="onGoldRateChange()"
+          >
+            Gold
+          </button>
+          <app-rate-form
+            *ngIf="isRateChange"
+            [entityName]="'Gold'"
+            (rateData)="onSubmitRateChange($event)"
+          ></app-rate-form>
+        </div>
+        <div class="card-body text-success">
+          <app-forms-gold
+            (goldDataEmitter)="onGoldCheckPrice($event)"
+          ></app-forms-gold>
+        </div>
+        <div class="card-footer bg-transparent border-white">
+          <div *ngIf="exchangeTotal > 0">
+            Total Amount: ₹ {{ totalPriceGold | number: '1.0-0' }}
+          </div>
+          <div *ngIf="exchangeTotal > 0">
+            Exchange Amount: ₹ {{ exchangeTotal | number: '1.0-0' }}
+          </div>
+          <div>Net Amount: ₹ {{ netPriceGold | number: '1.0-0' }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div
+        class="card shadow p-3 mb-5 bg-dark rounded"
+        style="max-width: 25rem;"
+      >
+        <div class="card-header bg-transparent border-white">Silver</div>
+        <div class="card-body text-success">
+          <app-forms-silver></app-forms-silver>
+        </div>
+        <div class="card-footer bg-transparent border-white">Footer</div>
+      </div>
+    </div>
+    <div class="col">
+      <div
+        class="card shadow p-3 mb-5 bg-dark rounded"
+        style="max-width: 25rem;"
+      >
+        <div class="card-header bg-transparent border-white">Diamond</div>
+        <div class="card-body text-success">
+          <app-forms-diamond></app-forms-diamond>
+        </div>
+        <div class="card-footer bg-transparent border-white">Footer</div>
+      </div>
+    </div>
+  </div>
+</div>
